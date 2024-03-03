@@ -1,6 +1,6 @@
 <?php
 // Change the value below
-$checkString = 'a';
+$checkString = 'Ab';
 // Change the value above
 
 function startsWith ($string, $startString) { 
@@ -14,7 +14,8 @@ $matched = false;
 $tron = new \IEXBase\TronAPI\Tron();
 while(!$matched) {
     $generateAddress = $tron->generateAddress(); 
-    $tempadd = strtolower(substr($generateAddress->getAddress(true), 1));
+    //$tempadd = strtolower(substr($generateAddress->getAddress(true), 1));
+    $tempadd = substr($generateAddress->getAddress(true), 1);
     $matched = startsWith($tempadd, $checkString);
     //echo $generateAddress->getAddress(true) . "\n";
 }
